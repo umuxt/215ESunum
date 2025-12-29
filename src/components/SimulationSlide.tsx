@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { Bus, Users, TrendingUp, TrendingDown, Activity, Clock, AlertTriangle, CheckCircle, Play, Pause, MapPin } from 'lucide-react';
 
 interface BusData {
@@ -8,8 +8,6 @@ interface BusData {
   status: 'normal' | 'crowded' | 'critical';
   waitTime: number;
   position: number; // 0-100 representing position on route
-  lat: number;
-  lng: number;
 }
 
 export function SimulationSlide() {
@@ -17,9 +15,9 @@ export function SimulationSlide() {
   const [time, setTime] = useState(0);
   const [passengerDemand, setPassengerDemand] = useState(65);
   const [buses, setBuses] = useState<BusData[]>([
-    { id: 'B1', route: '500T', occupancy: 45, status: 'normal', waitTime: 8, position: 10, lat: 41.0082, lng: 28.9784 },
-    { id: 'B2', route: '500T', occupancy: 72, status: 'normal', waitTime: 12, position: 45, lat: 41.0082, lng: 28.9784 },
-    { id: 'B3', route: '500T', occupancy: 88, status: 'crowded', waitTime: 15, position: 75, lat: 41.0082, lng: 28.9784 },
+    { id: 'B1', route: '500T', occupancy: 45, status: 'normal', waitTime: 8, position: 10 },
+    { id: 'B2', route: '500T', occupancy: 72, status: 'normal', waitTime: 12, position: 45 },
+    { id: 'B3', route: '500T', occupancy: 88, status: 'crowded', waitTime: 15, position: 75 },
   ]);
   const [events, setEvents] = useState<string[]>([]);
   const [metrics, setMetrics] = useState({
@@ -30,12 +28,12 @@ export function SimulationSlide() {
 
   // 500T route stops
   const stops = [
-    { name: 'Bağcılar', position: 0, lat: 41.0082, lng: 28.9784 },
-    { name: 'Güngören', position: 20, lat: 41.0082, lng: 28.9784 },
-    { name: 'Merter', position: 40, lat: 41.0082, lng: 28.9784 },
-    { name: 'Zeytinburnu', position: 60, lat: 41.0082, lng: 28.9784 },
-    { name: 'Topkapı', position: 80, lat: 41.0082, lng: 28.9784 },
-    { name: 'Aksaray', position: 100, lat: 41.0082, lng: 28.9784 },
+    { name: 'Bağcılar', position: 0 },
+    { name: 'Güngören', position: 20 },
+    { name: 'Merter', position: 40 },
+    { name: 'Zeytinburnu', position: 60 },
+    { name: 'Topkapı', position: 80 },
+    { name: 'Aksaray', position: 100 },
   ];
 
   useEffect(() => {
@@ -86,8 +84,6 @@ export function SimulationSlide() {
             status: 'normal',
             waitTime: 5,
             position: 5,
-            lat: 41.0082,
-            lng: 28.9784,
           };
           addEvent(`🚌 Ek sefer eklendi: ${newBus.id} - ${newBus.route} hattı`);
           return [...updatedBuses, newBus];
@@ -136,9 +132,9 @@ export function SimulationSlide() {
     setTime(0);
     setPassengerDemand(65);
     setBuses([
-      { id: 'B1', route: '500T', occupancy: 45, status: 'normal', waitTime: 8, position: 10, lat: 41.0082, lng: 28.9784 },
-      { id: 'B2', route: '500T', occupancy: 72, status: 'normal', waitTime: 12, position: 45, lat: 41.0082, lng: 28.9784 },
-      { id: 'B3', route: '500T', occupancy: 88, status: 'crowded', waitTime: 15, position: 75, lat: 41.0082, lng: 28.9784 },
+      { id: 'B1', route: '500T', occupancy: 45, status: 'normal', waitTime: 8, position: 10 },
+      { id: 'B2', route: '500T', occupancy: 72, status: 'normal', waitTime: 12, position: 45 },
+      { id: 'B3', route: '500T', occupancy: 88, status: 'crowded', waitTime: 15, position: 75 },
     ]);
     setEvents(['🔄 Simülasyon sıfırlandı']);
     setMetrics({

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ChevronLeft, ChevronRight, Bus } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Users, Bus, AlertCircle, TrendingUp, CheckCircle, Settings, Map, BarChart3 } from 'lucide-react';
 import { IntroSlide } from './components/IntroSlide';
 import { SystemDefinitionSlide } from './components/SystemDefinitionSlide';
 import { ProblemsSlide } from './components/ProblemsSlide';
@@ -8,7 +8,7 @@ import { ConstraintsSlide } from './components/ConstraintsSlide';
 import { SolutionsSlide } from './components/SolutionsSlide';
 import { ChosenSolutionSlide } from './components/ChosenSolutionSlide';
 import { ImplementationSlide } from './components/ImplementationSlide';
-import { RealMapSimulation } from './components/RealMapSimulation';
+import { SimulationSlide } from './components/SimulationSlide';
 import { ConclusionSlide } from './components/ConclusionSlide';
 
 export default function App() {
@@ -23,7 +23,7 @@ export default function App() {
     { component: SolutionsSlide, title: 'Çözüm Önerileri' },
     { component: ChosenSolutionSlide, title: 'Seçilen Çözüm' },
     { component: ImplementationSlide, title: 'Uygulama Aşaması' },
-    { component: RealMapSimulation, title: 'Canlı Demo - Gerçek Harita' },
+    { component: SimulationSlide, title: 'Canlı Demo' },
     { component: ConclusionSlide, title: 'Sonuç' },
   ];
 
